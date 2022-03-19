@@ -1,0 +1,12 @@
+version: '3.3'
+services:
+  crypto-tracker-gateway:
+    container_name: crypto_tracker_gateway
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - 4000:4000
+    env_file:
+      - .env

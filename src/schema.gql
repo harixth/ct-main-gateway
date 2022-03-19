@@ -1,0 +1,75 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+input ChangePasswordInput {
+  id: String!
+  oldPassword: String!
+  password: String!
+}
+
+input CreateIdentityInput {
+  email: String
+  password: String!
+  phone: String
+}
+
+type Identity {
+  _id: ID!
+  accessToken: String
+  authCode: Float!
+  authToken: String!
+  email: String
+  emailVerified: Boolean!
+  password: String!
+  phone: String
+  phoneVerified: Boolean!
+  verifyExpiry: String!
+}
+
+input LoginInput {
+  password: String!
+  username: String!
+}
+
+type Mutation {
+  changePassword(changePasswordInput: ChangePasswordInput!): Identity!
+  createIdentity(createIdentityInput: CreateIdentityInput!): Identity!
+  login(loginInput: LoginInput!): Identity!
+  removeIdentity(id: Int!): Identity!
+  resetPassword(resetPasswordInput: ResetPasswordInput!): Identity!
+  updateIdentity(updateIdentityInput: UpdateIdentityInput!): Identity!
+  verifyEmail(verifyEmailInput: VerifyEmailInput!): Identity!
+}
+
+type Query {
+  forgotPassword(username: String!): Identity!
+  getCurrentUser: User!
+  identity(id: Int!): Identity!
+  user(userId: String!): User!
+  whoAmI: Identity!
+}
+
+input ResetPasswordInput {
+  password: String!
+  token: String!
+}
+
+input UpdateIdentityInput {
+  email: String
+  id: Int!
+  password: String
+  phone: String
+}
+
+type User {
+  _id: ID!
+  email: String
+  name: String
+  userId: String!
+}
+
+input VerifyEmailInput {
+  code: Float!
+  token: String!
+}
