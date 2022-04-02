@@ -6,7 +6,12 @@ import { AppModule } from './app.module';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.enableCors({
-    origin: ['http://localhost:3000', 'https://crypto-tracker-web.vercel.app'],
+    origin: [
+      'http://localhost:3000',
+      'http://localhost:3001',
+      'https://www.cryptotraker.xyz',
+      'https://cryptotraker.vercel.app',
+    ],
     credentials: true,
   });
   app.use(
